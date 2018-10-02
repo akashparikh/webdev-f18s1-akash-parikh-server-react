@@ -19,7 +19,7 @@ import Topics from "./Topics";
 import Widget from "./Widgets";
 import Edit from "./edit";
 import EditCourse from "./EditCourse";
-import CourseEditor from "./components/CourseEditor";
+import CourseEditor from "./CourseEditor";
 
 function getModules() {
     return <li className="list-group-item">ss</li>;
@@ -51,7 +51,7 @@ const element3 = (
     </ul>
 );
 
-ReactDOM.render(<EditCourse/>,document.getElementById('root'));
+ReactDOM.render(<HeaderSwitch/>,document.getElementById('root'));
 
 
 
