@@ -33,13 +33,12 @@ export const widgetReducer = (state=initialState,action) =>{
 
             return{
                 widgets:[
-                    action.widget,
-                    ...state.widgets
+                    ...state.widgets,
+                    action.widget
 
                 ]
             }
         }
-
 
         case 'UPDATE_WIDGET':
             return{

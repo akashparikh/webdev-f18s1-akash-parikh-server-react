@@ -20,7 +20,9 @@ export const WidgetListComponent = ({widgets,deleteWidget,createWidget,updateWid
         <ul className="list-group">
             <li className="list-group-item">
                 <button className="btn btn-success">Save</button>
-                <button onClick={()=>preview=!preview}
+                <button value={this.preview}
+                    onClick={()=>preview=!preview
+                    }
                     className="btn btn-warning float-right">
                     Preview
                 </button>

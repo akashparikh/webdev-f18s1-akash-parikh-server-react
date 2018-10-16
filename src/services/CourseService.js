@@ -80,10 +80,7 @@ let courses = [
                     }
                 ]
             },
-            {
-                title: 'Week 3',
-                lessons: []
-            }
+
         ]
     },
     {

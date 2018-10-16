@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const HeadingWidget = ({widget,updateWidget}) =>
+export const HeadingWidget = ({preview,widget,updateWidget}) =>
 {
     let text;
     let size;
@@ -9,7 +9,8 @@ export const HeadingWidget = ({widget,updateWidget}) =>
     return(
         <div>
             <div hidden={widget.preview}>
-            <h1>{widget.name}-Widget</h1>
+            <h1>{widget.preview}
+                {widget.name}-Widget</h1>
             <select onChange={()=>{
                 let w={
                     id:widget.id,

@@ -58,16 +58,16 @@ export const ListWidget=({widget,updateWidget})=> {
                        checked={widget.ordered} type="checkbox"/>Ordered
             </label>
             <h4>Preview</h4>
-            {!widget.ordered && widget.listItems !== undefined &&
+            {!widget.ordered &&
             <ul>
-                {widget.listIems.split('\n').map((item,index)=>(
+                {widget.listIems!==undefined && widget.listIems.split('\n').map((item,index)=>(
                     <li key={index}>{item}</li>
                 ))}
             </ul>
             }
-            {widget.ordered && widget.listItems !== undefined &&
+            {widget.ordered &&
             <ol>
-                {widget.listIems.split('\n').map((item,index)=>(
+                {widget.listIems!==undefined && widget.listIems.split('\n').map((item,index)=>(
                     <li key={index}>{item}</li>
                 ))}
             </ol>
