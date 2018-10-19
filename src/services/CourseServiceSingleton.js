@@ -344,6 +344,13 @@ export default class CourseServiceSingleton {
         })
     }
 
+    static addModule = module => {
+        courses = courses.map(course => {
+            course.modules.push(module)
+            return course;
+        })
+    }
+
     static deleteWidget = (forTopic, forWidget) => {
         for(let c in courses) {
             for(let m in courses[c].modules) {

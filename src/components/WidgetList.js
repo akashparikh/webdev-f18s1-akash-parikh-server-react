@@ -10,27 +10,17 @@ import './style.css';
 class WidgetList extends React.Component {
     constructor(props) {
         super(props);
-        props.init(props.widgetsInit, props.topic)
+        props.init(props.widgetsInit, props.topic,props.checked)
         let count=0;
     }
 
     componentDidUpdate() {
-        this.props.init(this.props.widgetsInit, this.props.topic)
+        this.props.init(this.props.widgetsInit, this.props.topic,this.props.checked)
     }
     render() {
         return(
             <div>
-            <ul className="list-group">
-                <li className="list-group-item">
-                    <button className="btn btn-success">Save</button>
-                    <button value={this.preview}
-                            onClick={()=>this.preview=!this.preview
-                            }
-                            className="btn btn-warning float-right">
-                        Preview
-                    </button>
-                </li>
-            </ul>
+
             <ul className="list-group">
                 {
                     this.props.widgets.map((widget, index) =>
@@ -54,19 +44,35 @@ class WidgetList extends React.Component {
                                 <i className='fa fa-times'/>
                             </button>
 
-                            {widget.type === "HEADING" && <HeadingWidget updateWidget={this.props.updateWidget}
-                                                                         widget={widget}/>}
-                            {widget.type === "LIST" && <ListWidget updateWidget={this.props.updateWidget}
-                                                                   widget={widget}/>}
+                            {widget.type === "HEADING" &&
+                            <HeadingWidget
+                                updateWidget={this.props.updateWidget}
+                                widget={widget}
+                                checked={this.props.checked}
+                            />}
+                            {widget.type === "LIST" &&
+                            <ListWidget updateWidget={this.props.updateWidget}
+                                        widget={widget}
+                                        checked={this.props.checked}
+                            />}
                             {widget.type === 'PARAGRAPH'
                             && <ParagraphWidget
-                                widget={widget} updateWidget={this.props.updateWidget}/>}
+                                widget={widget}
+                                updateWidget={this.props.updateWidget}
+                                checked={this.props.checked}
+                            />}
                             {widget.type === 'LINK'
                             && <LinkWidget
-                                widget={widget} updateWidget={this.props.updateWidget}/>}
+                                widget={widget}
+                                updateWidget={this.props.updateWidget}
+                                checked={this.props.checked}
+                            />}
                             {widget.type === 'IMAGE'
                             && <ImageWidget
-                                widget={widget} updateWidget={this.props.updateWidget}/>}
+                                widget={widget}
+                                updateWidget={this.props.updateWidget}
+                                checked={this.props.checked}
+                            />}
                         </li>
 
                     )

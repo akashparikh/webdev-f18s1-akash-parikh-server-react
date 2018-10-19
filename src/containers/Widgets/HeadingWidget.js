@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const HeadingWidget = ({preview,widget,updateWidget}) =>
+export const HeadingWidget = ({preview,widget,updateWidget,checked}) =>
 {
     let text;
     let size;
@@ -8,6 +8,8 @@ export const HeadingWidget = ({preview,widget,updateWidget}) =>
     let widgetName;
     return(
         <div>
+            {!checked &&
+            <div>
             <div hidden={widget.preview}>
             <h1>{widget.preview}
                 {widget.title}-Widget</h1>
@@ -66,8 +68,9 @@ export const HeadingWidget = ({preview,widget,updateWidget}) =>
                    }}
 
             />
+               </div>
             <h4>Preview</h4>
-            </div>
+            </div>}
             {widget.size === '1' && <h1>{widget.text}</h1>}
             {widget.size === '2' && <h2>{widget.text}</h2>}
             {widget.size === '3' && <h3>{widget.text}</h3>}

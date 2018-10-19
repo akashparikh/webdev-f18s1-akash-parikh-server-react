@@ -1,7 +1,7 @@
 import React from 'react'
 import ModuleListItem from "./ModuleListItem";
 
-const ModuleList = ({modules, deleteModule, selectModule, selectedModule}) =>
+const ModuleList = ({addModule,modules, deleteModule, selectModule, selectedModule}) =>
     <ul className="list-group">
         {
             modules.map((module, index) =>
@@ -19,7 +19,7 @@ const ModuleList = ({modules, deleteModule, selectModule, selectedModule}) =>
                        placeholder="New Topic">
                 </input>
             </form>
-            <button  onClick="" className="btn-primary">Add Module</button>
+            <button  onClick={() => addModule()} className="btn-primary">Add Module</button>
         </li>
     </ul>
 
