@@ -1,6 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import WidgetListComponent from "./Widgets/WidgetListComponent"
+import WidgetList from "../components/WidgetList"
 
 const stateToPropertyMapper = state => ({
     widgets:state.widgets,
@@ -10,18 +10,23 @@ const stateToPropertyMapper = state => ({
 
 
 const dispatcherToPropertyMapper = dispatch => ({
-    deleteWidget:(wid)=>dispatch({
-        type:'DELETE_WIDGET',
-        widgetId:wid
+
+    init: (widgets, topic) => dispatch({
+        type: 'INIT',
+        widgets: widgets,
+        topic: topic
     }),
-    createWidget:(widget)=>
-    {
-        console.log(widget)
-        return dispatch({
-            type:'CREATE_WIDGET',
-            widget:widget,
-        })
-    }
+
+
+    deleteWidget: (widget) => dispatch({
+        type: 'DELETE_WIDGET',
+        widget: widget
+    }),
+
+    createWidget:(topic)=>dispatch({
+        type:'CREATE_WIDGET',
+        topic: topic
+    })
 
     ,
     updateWidget:widget=>dispatch({
@@ -50,6 +55,6 @@ const dispatcherToPropertyMapper = dispatch => ({
 const WidgetListContainer=connect(
     stateToPropertyMapper,
     dispatcherToPropertyMapper)
-(WidgetListComponent)
+(WidgetList)
 
 export default WidgetListContainer

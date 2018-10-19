@@ -10,8 +10,11 @@ export const ImageWidget=({widget,updateWidget})=>{
             <h1>{widget.name}-Widget</h1>
             <select onChange={()=>{
                 let w={
-                    id:widget.id,
-                    widgetType:widgetType.value
+                    id: widget.id,
+                    title: 'widget 1',
+                    type: widgetType.value,
+                    size: 1,
+                    text: 'Heading 1'
                 };
                 updateWidget(w)
             }}
@@ -51,8 +54,7 @@ export const ImageWidget=({widget,updateWidget})=>{
             <h4>Preview</h4>
             <img width='200px'
                  height='200px'
-                 src={widget.src}
-            />
+                 src={"abc.jpg"}/>
         </div>
     )
 

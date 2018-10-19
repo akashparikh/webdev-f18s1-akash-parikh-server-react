@@ -13,6 +13,14 @@ const ModuleList = ({modules, deleteModule, selectModule, selectedModule}) =>
                     module={module}/>
             )
         }
+        <li className="list-group">
+            <form>
+                <input type="text" className="form-control" value="New Topic"
+                       placeholder="New Topic">
+                </input>
+            </form>
+            <button  onClick="" className="btn-primary">Add Module</button>
+        </li>
     </ul>
 
 export default ModuleList

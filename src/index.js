@@ -29,8 +29,6 @@ ReactDOM.render(
     <Router>
     <div className="container-fluid">
         <WhiteBoard courses={courses}/>
-        <Link to="/widgets">Widgets</Link>
-        <Route path='/widgets' component={WidgetListContainer}/>
     </div>
     </Router>
     </Provider>,

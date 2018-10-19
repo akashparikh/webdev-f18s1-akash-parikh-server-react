@@ -12,8 +12,11 @@ export const LinkWidget=({widget,updateWidget})=> {
             <h1>{widget.name}-Widget</h1>
             <select onChange={()=>{
                 let w={
-                    id:widget.id,
-                    widgetType:widgetType.value
+                    id: widget.id,
+                    title: 'widget 1',
+                    type: widgetType.value,
+                    size: 1,
+                    text: 'Heading 1'
                 };
                 updateWidget(w)
             }}
