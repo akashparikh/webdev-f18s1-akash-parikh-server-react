@@ -11,6 +11,9 @@ import WhiteBoard from './containers/WhiteBoard'
 import {WidgetListComponent} from "./containers/Widgets/WidgetListComponent";
 import {widgetReducer} from "./reducers/WidgetReducer";
 import WidgetListContainer from "./containers/WidgetListContainer";
+import LoginTab from "./components/LoginTab";
+import RegisterTab from "./components/RegisterTab"
+import ProfileTab from "./components/ProfileTab";
 
 
 const courses = [
@@ -29,6 +32,8 @@ ReactDOM.render(
     <Router>
     <div className="container-fluid">
         <WhiteBoard courses={courses}/>
+
+        <Route path='/widgets' component={WidgetListContainer}/>
     </div>
     </Router>
     </Provider>,

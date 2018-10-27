@@ -8,45 +8,28 @@ import {ParagraphWidget} from "./ParagraphWidget";
 import {LinkWidget} from "./LinkWidget";
 import {ImageWidget} from "./ImageWidget";
 
-class WidgetListComponent extends React.Component {
-
-    constructor(props)
-    {
-        super(props);
-        this.widgetTitle;
-        this.widgetType;
-        props.init(props.widgetsInit, props.topic)
-    }
-
-    componentDidUpdate() {
-        this.props.init(this.props.widgetsInit,this.props.topic)
-    }
-
-    // componentWillReceiveProps(newProps)
-    // {
-    //     if (newProps.topicId !== this.props.topicId)
-    //     {
-    //         this.props.findAllWidgets(newProps.topicId);
-    //     }
-    // }
-
-    render() {
-        return(
+export const WidgetListComponent = ({widgets,deleteWidget,createWidget,updateWidget,moveUp,moveDown}) =>
+{
+    let widgetTitle;
+    let widgetType;
+    let position;
+    let preview=false;
+    return (
         <div>
         <h3>Widget List</h3>
         <ul className="list-group">
             <li className="list-group-item">
                 <button className="btn btn-success">Save</button>
                 <button value={this.preview}
-                    onClick={()=>this.preview=!this.preview
+                    onClick={()=>preview=!preview
                     }
                     className="btn btn-warning float-right">
                     Preview
                 </button>
             </li>
             <li className="list-group-item">
-                <input ref={node => this.widgetTitle = node} className="form-control"/><br/>
-                <select ref={node =>this.widgetType=node}
+                <input ref={node => widgetTitle = node} className="form-control"/><br/>
+                <select ref={node =>widgetType=node}
                     className="form-control col-4">
                     <option value="HEADING">Heading Widget</option>
                     <option value="LIST">List Widget</option>
@@ -54,55 +37,68 @@ class WidgetListComponent extends React.Component {
                     <option value="PARAGRAPH">Paragraph Widget</option>
                     <option value="IMAGE">Image Widget</option>
                 </select><br/>
+                <button onClick={
+                    ()=>{
+                        console.log(widgets.length)
+                        let widget ={
+                            title:widgetTitle.value,
+                            id:(new Date()).getTime(),
+                            widgetType:widgetType.value
 
-                    <button onClick={()=>{this.props.createWidget(this.props.topic)}}
-                        className="btn btn-danger">
+                    };
+                    widgetTitle.value='';
+                    widget.position=widgets.length;
+                    widget.preview=preview;
+
+                    createWidget(widget)
+                    }
+                }
+                        className="btn btn-success">
                     <i className='fa fa-plus-circle'/>
                 </button>
-
             </li>
 
-            {this.props.widgets.map((widget,index) =>
+            {!!widgets && widgets.length!=0 &&
+                widgets.map((widget, index) =>
                 <li className="list-group-item" key={index}>
                     {/*{widget.title} ({widget.id})-{widget.widgetType}*/}
                     <button onClick={
                         () =>
-                            this.props.deleteWidget(widget.id)}
+                            deleteWidget(widget.id)}
                             className="float-right btn-danger">
                         <i className='fa fa-times'/>
                     </button>
 
                     <button className='btn btn-warning float-right ml-1'
                             hidden={widget.position === 0}
-                            onClick={() => this.props.moveUp(widget)}>
+                            onClick={() => moveUp(widget)}>
                         <i className='fa fa-arrow-up'/>
                     </button>
                     <button className='btn btn-warning float-right'
-                            onClick={() => this.props.moveDown(widget)}>
+                            onClick={() => moveDown(widget)}>
                         <i className='fa fa-arrow-down'/>
                     </button>
                     <div>
-                        {widget.type === 'HEADING'
-                        && <HeadingWidget
-                            widget={widget} updateWidget={this.props.updateWidget}/>}
-                        {widget.type === 'LIST'
-                        && <ListWidget
-                            widget={widget} updateWidget={this.props.updateWidget}/>}
-                        {widget.type === 'PARAGRAPH'
-                        && <ParagraphWidget
-                            widget={widget} updateWidget={this.props.updateWidget}/>}
-                        {widget.type === 'LINK'
-                        && <LinkWidget
-                            widget={widget} updateWidget={this.props.updateWidget}/>}
-                        {widget.type === 'IMAGE'
-                        && <ImageWidget
-                            widget={widget} updateWidget={this.props.updateWidget}/>}
+                        {widget.widgetType === 'HEADING'
+                        && <HeadingWidget preview={preview}
+                            widget={widget} updateWidget={updateWidget}/>}
+                        {widget.widgetType === 'LIST'
+                        && <ListWidget preview={preview}
+                            widget={widget} updateWidget={updateWidget}/>}
+                        {widget.widgetType === 'PARAGRAPH'
+                        && <ParagraphWidget preview={preview}
+                            widget={widget} updateWidget={updateWidget}/>}
+                        {widget.widgetType === 'LINK'
+                        && <LinkWidget preview={preview}
+                            widget={widget} updateWidget={updateWidget}/>}
+                        {widget.widgetType === 'IMAGE'
+                        && <ImageWidget preview={preview}
+                            widget={widget} updateWidget={updateWidget}/>}
                     </div>
                 </li>
             )}
         </ul>
     </div>)
-    }
 }
 
 export default WidgetListComponent

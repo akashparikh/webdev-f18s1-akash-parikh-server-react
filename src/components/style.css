@@ -1,7 +1,0 @@
-li:first-child #moveUp{
-    display:none;
-}
-
-li:last-child #moveDown{
-    display:none;
-}

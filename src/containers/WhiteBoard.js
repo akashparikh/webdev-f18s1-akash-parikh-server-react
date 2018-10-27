@@ -6,6 +6,12 @@ import CourseTable from "../components/CourseTable";
 import {BrowserRouter as Router, Link, Route} from 'react-router-dom'
 import CourseServiceSingleton from "../services/CourseServiceSingleton";
 import CourseEditor from "../components/CourseEditor";
+import LoginTab from "../components/LoginTab";
+import RegisterTab from "../components/RegisterTab";
+import ProfileTab from "../components/ProfileTab";
+
+var style = {color:'whitesmoke',textDecoration:'none'};
+var style2 = {textAlign:'center'};
 
 export default class WhiteBoard extends Component {
 
@@ -41,9 +47,13 @@ export default class WhiteBoard extends Component {
             <div>
                 <h1>WhiteBoard ({this.state.courses.length})</h1>
                 <Router>
+
                     <div>
-                        <Link to="/course/table">Table</Link>
-                        <Link to="/course/grid">Grid</Link>
+                        <Link to="/components/Login">Login |</Link>
+                        <Link to="/course/table"> Table |</Link>
+                        <Link to="/course/grid"> Grid |</Link>
+                        <Link to="/components/Register"> Register |</Link>
+                        <Link to="/components/Profile"> Profile |</Link>
                         <Route path="/course/table"
                                render={() =>
                                    <CourseTable
@@ -60,7 +70,15 @@ export default class WhiteBoard extends Component {
                                     deleteModule={this.deleteModule}
                                     courses={this.state.courses}/>}
                             path="/course/:courseId/edit"/>
+                        <Route path="/components/Login"
+                               component={LoginTab}/>
+                        <Route path="/components/Register"
+                               component={RegisterTab}/>
+                        <Route path="/components/Profile"
+                               component={ProfileTab}/>
+
                     </div>
+
                 </Router>
             </div>
         );

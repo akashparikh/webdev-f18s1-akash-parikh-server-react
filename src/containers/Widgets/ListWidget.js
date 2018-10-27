@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const ListWidget=({widget,updateWidget,checked})=> {
+export const ListWidget=({widget,updateWidget})=> {
     let text;
     let size;
     let widgetType;
@@ -9,16 +9,11 @@ export const ListWidget=({widget,updateWidget,checked})=> {
 
     return(
         <div>
-            {!checked &&
-                <div>
             <h1>{widget.name}-Widget</h1>
             <select onChange={()=>{
                 let w={
-                    id: widget.id,
-                    title: 'widget 1',
-                    type: widgetType.value,
-                    size: 1,
-                    text: 'Heading 1'
+                    id:widget.id,
+                    widgetType:widgetType.value
                 };
                 updateWidget(w)
             }}
@@ -63,7 +58,6 @@ export const ListWidget=({widget,updateWidget,checked})=> {
                        checked={widget.ordered} type="checkbox"/>Ordered
             </label>
             <h4>Preview</h4>
-             </div>}
             {!widget.ordered &&
             <ul>
                 {widget.listIems!==undefined && widget.listIems.split('\n').map((item,index)=>(

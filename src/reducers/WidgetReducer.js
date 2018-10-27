@@ -28,14 +28,28 @@ export const widgetReducer = (state=initialState,action) =>{
                     widget => widget.id !== action.widgetId
                 )
             }
+        case 'CREATE_WIDGET':
+        {
 
-        case "CREATE_WIDGET":
-            CourseServiceSingleton.createWidget(state.selectedTopic)
-            return {
-                widgets:CourseServiceSingleton.createWidget(action.topic),
-                selectedTopic: state.selectedTopic
+            return{
+                widgets:[
+                    ...state.widgets,
+                    action.widget
+
+                ]
             }
+        }
 
+        case 'UPDATE_WIDGET':
+            return{
+                widgets:state.widgets.map(widget=>{
+                    if(widget.id===action.widget.id){
+                        return action.widget
+                    }else{
+                        return widget
+                    }
+                })
+            }
         case 'MOVE_UP':
             //console.log(action.widget)
             //console.log(state)

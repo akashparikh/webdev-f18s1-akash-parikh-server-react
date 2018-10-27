@@ -1,5 +1,3 @@
-import widgets from "../reducers/widgets";
-
 let courses = [
     {
         id: '123',
@@ -49,25 +47,13 @@ let courses = [
                                 title: 'topic 2',
                                 widgets: [
                                     {
-                                        id: '123',
-                                        title: 'widget 1',
-                                        type: 'HEADING',
-                                        size: 1,
-                                        text: 'Heading 1'
+                                        title: 'widget a'
                                     },
                                     {
-                                        id: '123',
-                                        title: 'widget 1',
-                                        type: 'HEADING',
-                                        size: 1,
-                                        text: 'Heading 1'
+                                        title: 'widget b'
                                     },
                                     {
-                                        id: '123',
-                                        title: 'widget 1',
-                                        type: 'HEADING',
-                                        size: 1,
-                                        text: 'Heading 1'
+                                        title: 'widget c'
                                     }
                                 ]
                             }
@@ -77,85 +63,19 @@ let courses = [
                         title: 'Lesson 2',
                         topics: [
                             {
-                                title: 'topic a',
-                                widgets: [
-                                    {
-                                        id: '123',
-                                        title: 'widget 1',
-                                        type: 'HEADING',
-                                        size: 1,
-                                        text: 'Heading 1'
-                                    },
-                                    {
-                                        id: '123',
-                                        title: 'widget 1',
-                                        type: 'HEADING',
-                                        size: 1,
-                                        text: 'Heading 1'
-                                    },
-                                    {
-                                        id: '123',
-                                        title: 'widget 1',
-                                        type: 'HEADING',
-                                        size: 1,
-                                        text: 'Heading 1'
-                                    }
-                                ]
+                                title: 'topic a'
                             },
                             {
-                                title: 'topic b',
-                                widgets: [
-                                    {
-                                        id: '123',
-                                        title: 'widget 1',
-                                        type: 'HEADING',
-                                        size: 1,
-                                        text: 'Heading 1'
-                                    },
-                                    {
-                                        id: '123',
-                                        title: 'widget 1',
-                                        type: 'HEADING',
-                                        size: 1,
-                                        text: 'Heading 1'
-                                    },
-                                    {
-                                        id: '123',
-                                        title: 'widget 1',
-                                        type: 'HEADING',
-                                        size: 1,
-                                        text: 'Heading 1'
-                                    }
-                                ]
+                                title: 'topic b'
                             },
                             {
-                                title: 'topic c',
-                                widgets: [
-                                    {
-                                        id: '123',
-                                        title: 'widget 1',
-                                        type: 'HEADING',
-                                        size: 1,
-                                        text: 'Heading 1'
-                                    },
-                                    {
-                                        id: '123',
-                                        title: 'widget 1',
-                                        type: 'HEADING',
-                                        size: 1,
-                                        text: 'Heading 1'
-                                    },
-                                    {
-                                        id: '123',
-                                        title: 'widget 1',
-                                        type: 'HEADING',
-                                        size: 1,
-                                        text: 'Heading 1'
-                                    }
-                                ]
+                                title: 'topic c'
                             }
                         ]
                     },
+                    {
+                        title: 'Lesson 3'
+                    }
                 ]
             },
             {
@@ -163,142 +83,32 @@ let courses = [
                 lessons: [
                     {
                         title: 'Lesson A',
-                        topics: [
-                            {
-                                title: 'topic c',
-                                widgets: [
-                                    {
-                                        id: '123',
-                                        title: "widget 1",
-                                        type: 'LIST',
-                                        size: 1,
-                                        text: 'Heading 1',
-                                        name:"Default",
-                                    },
-                                    {
-                                        id: '123',
-                                        title: 'widget 1',
-                                        type: 'HEADING',
-                                        size: "3",
-                                        text: "Heading 1"
-                                    },
-                                    {
-                                        id: '123',
-                                        title: 'widget 1',
-                                        type: 'LINK',
-                                        size: 1,
-                                        text: 'Heading 1'
-                                    }
-                                ]
-                            }
-
-                        ]
+                        topics: []
                     },
                     {
                         title: 'Lesson B',
-                        topics: [
-                            {
-                                title: 'topic c',
-                                widgets: [
-                                    {
-                                        id: '123',
-                                        title: 'widget 1',
-                                        type: 'HEADING',
-                                        size: 1,
-                                        text: 'Heading 1'
-                                    },
-                                    {
-                                        id: '123',
-                                        title: 'widget 1',
-                                        type: 'HEADING',
-                                        size: 1,
-                                        text: 'Heading 1'
-                                    },
-                                    {
-                                        id: '123',
-                                        title: 'widget 1',
-                                        type: 'HEADING',
-                                        size: 1,
-                                        text: 'Heading 1'
-                                    }
-                                ]
-                            }
-                        ]
+                        topics: []
                     },
                     {
                         title: 'Lesson C',
-                        topics: [
-                            {
-                                title: 'topic c',
-                                widgets: [
-                                    {
-                                        id: '123',
-                                        title: 'widget 1',
-                                        type: 'HEADING',
-                                        size: 1,
-                                        text: 'Heading 1'
-                                    },
-                                    {
-                                        id: '123',
-                                        title: 'widget 1',
-                                        type: 'HEADING',
-                                        size: 1,
-                                        text: 'Heading 1'
-                                    },
-                                    {
-                                        id: '123',
-                                        title: 'widget 1',
-                                        type: 'HEADING',
-                                        size: 1,
-                                        text: 'Heading 1'
-                                    }
-                                ]
-                            }
-                        ]
+                        topics: []
                     }
                 ]
             },
             {
                 title: 'Week 3',
-                lessons: [{
-                    title : 'Lesson 1',
-                    topics: [
-                        {
-                            title: 'topic c',
-                            widgets: [
-                                {
-                                    id: '123',
-                                    title: 'widget 1',
-                                    type: 'HEADING',
-                                    size: 1,
-                                    text: 'Heading 1'
-                                },
-                                {
-                                    id: '123',
-                                    title: 'widget 1',
-                                    type: 'HEADING',
-                                    size: 1,
-                                    text: 'Heading 1'
-                                },
-                                {
-                                    id: '123',
-                                    title: 'widget 1',
-                                    type: 'HEADING',
-                                    size: 1,
-                                    text: 'Heading 1'
-                                }
-                            ]
-                        }
-                    ]
-                }]
+                lessons: []
             }
         ]
     },
-
+    {
+        id: '234',
+        title: 'CS5610',
+        modules: []
+    }
 ]
 
 export default class CourseServiceSingleton {
-
     static updateWidget = (forTopic, forWidget) => {
         for(let c in courses) {
             for(let m in courses[c].modules) {
@@ -343,14 +153,6 @@ export default class CourseServiceSingleton {
             return course;
         })
     }
-
-    static addModule = module => {
-        courses = courses.map(course => {
-            course.modules.push(module)
-            return course;
-        })
-    }
-
     static deleteWidget = (forTopic, forWidget) => {
         for(let c in courses) {
             for(let m in courses[c].modules) {
@@ -365,64 +167,4 @@ export default class CourseServiceSingleton {
             }
         }
     }
-
-    static createWidget = (forTopic) =>  {
-        for(let c in courses) {
-            for(let m in courses[c].modules) {
-                for(let l in courses[c].modules[m].lessons) {
-                    for(let t in courses[c].modules[m].lessons[l].topics) {
-                        console.log(courses[c].modules[m].lessons[l].topics[t].widgets)
-                        courses[c].modules[m].lessons[l].topics[t].widgets.push({
-                                id: (new Date()).getTime()+'',
-                                title: 'widget 1',
-                                type: 'HEADING',
-                                size: 1,
-                                text: 'Heading 1'
-                            });
-                    }
-                }
-            }
-        }
-    }
-
-    static moveUp = (forTopic, forWidget) => {
-        for(let c in courses) {
-            for(let m in courses[c].modules) {
-                for(let l in courses[c].modules[m].lessons) {
-                    for(let t in courses[c].modules[m].lessons[l].topics) {
-                        if(courses[c].modules[m].lessons[l].topics[t].id === forTopic.id)
-                        {
-                            const widgetIndex = courses[c].modules[m].lessons[l].topics[t].widgets.findIndex(widget => widget.id === forWidget.id)
-                            let temp=courses[c].modules[m].lessons[l].topics[t].widgets[widgetIndex];
-                            courses[c].modules[m].lessons[l].topics[t].widgets[widgetIndex] =
-                                courses[c].modules[m].lessons[l].topics[t].widgets[widgetIndex - 1];
-                            courses[c].modules[m].lessons[l].topics[t].widgets[widgetIndex - 1] = temp;
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    static moveDown = (forTopic, forWidget) => {
-        for(let c in courses) {
-            for(let m in courses[c].modules) {
-                for(let l in courses[c].modules[m].lessons) {
-                    for(let t in courses[c].modules[m].lessons[l].topics) {
-                        if(courses[c].modules[m].lessons[l].topics[t].id === forTopic.id)
-                        {
-                            const widgetIndex = courses[c].modules[m].lessons[l].topics[t].widgets.findIndex(widget => widget.id === forWidget.id)
-                            let temp=courses[c].modules[m].lessons[l].topics[t].widgets[widgetIndex];
-                            courses[c].modules[m].lessons[l].topics[t].widgets[widgetIndex] =
-                                courses[c].modules[m].lessons[l].topics[t].widgets[widgetIndex + 1];
-                            courses[c].modules[m].lessons[l].topics[t].widgets[widgetIndex + 1] = temp;
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-
-
 }

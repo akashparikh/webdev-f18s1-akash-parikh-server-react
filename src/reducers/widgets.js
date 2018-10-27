@@ -7,7 +7,6 @@ const widgets = (state = {widgets:[]}, action) => {
                 widgets: CourseServiceSingleton.findWidgetsForTopic(action.topic),
                 selectedTopic: action.topic
             }
-
         case "DELETE_WIDGET":
             CourseServiceSingleton.deleteWidget(state.selectedTopic, action.widget)
             const newWidgets = CourseServiceSingleton.findWidgetsForTopic(state.selectedTopic)
@@ -15,35 +14,12 @@ const widgets = (state = {widgets:[]}, action) => {
                 widgets: newWidgets.slice(0),
                 selectedTopic: state.selectedTopic
             }
-
-        case "CREATE_WIDGET":
-            CourseServiceSingleton.createWidget(state.selectedTopic)
-            return {
-                widgets: CourseServiceSingleton.findWidgetsForTopic(state.selectedTopic).slice(0),
-                selectedTopic: state.selectedTopic
-            }
-
         case "UPDATE_WIDGET":
             CourseServiceSingleton.updateWidget(state.selectedTopic, action.widget)
             return {
                 widgets: CourseServiceSingleton.findWidgetsForTopic(state.selectedTopic).slice(0),
                 selectedTopic: state.selectedTopic
             }
-
-        case "MOVE_UP":
-            CourseServiceSingleton.moveUp(state.selectedTopic, action.widget)
-            return {
-                widgets: CourseServiceSingleton.findWidgetsForTopic(state.selectedTopic).slice(0),
-                selectedTopic: state.selectedTopic
-            }
-
-        case "MOVE_DOWN":
-            CourseServiceSingleton.moveDown(state.selectedTopic, action.widget)
-            return {
-                widgets: CourseServiceSingleton.findWidgetsForTopic(state.selectedTopic).slice(0),
-                selectedTopic: state.selectedTopic
-            }
-
 
         default:
             return state

@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const HeadingWidget = ({preview,widget,updateWidget,checked}) =>
+export const HeadingWidget = ({preview,widget,updateWidget}) =>
 {
     let text;
     let size;
@@ -8,18 +8,13 @@ export const HeadingWidget = ({preview,widget,updateWidget,checked}) =>
     let widgetName;
     return(
         <div>
-            {!checked &&
-            <div>
             <div hidden={widget.preview}>
             <h1>{widget.preview}
-                {widget.title}-Widget</h1>
+                {widget.name}-Widget</h1>
             <select onChange={()=>{
                 let w={
-                    id: widget.id,
-                    title: 'widget 1',
-                    type: widgetType.value,
-                    size: 1,
-                    text: 'Heading 1'
+                    id:widget.id,
+                    widgetType:widgetType.value
                 };
                 updateWidget(w)
             }}
@@ -39,7 +34,6 @@ export const HeadingWidget = ({preview,widget,updateWidget,checked}) =>
                    }}
                    ref={node => text = node}
                    className="form-control"
-                   value={widget.text}
                    placeholder="Heading Text" id="text"/><br/>
             <label htmlFor="size">Heading Size</label>
             <select
@@ -48,9 +42,7 @@ export const HeadingWidget = ({preview,widget,updateWidget,checked}) =>
                 updateWidget(widget)
                 }}
                 ref={node => size = node}
-                className="form-control" id="size"
-                value={widget.size}
-            >
+                className="form-control" id="size">
                 <option value="1">Heading 1</option>
                 <option value="2">Heading 2</option>
                 <option value="3">Heading 3</option>
@@ -63,14 +55,13 @@ export const HeadingWidget = ({preview,widget,updateWidget,checked}) =>
                    ref={(node)=>widgetName=node}
                    value={widget.name}
                    onChange={()=>{
-                       widget.title=widgetName.value
+                       widget.name=widgetName.value
                        updateWidget(widget);
                    }}
 
             />
-               </div>
             <h4>Preview</h4>
-            </div>}
+            </div>
             {widget.size === '1' && <h1>{widget.text}</h1>}
             {widget.size === '2' && <h2>{widget.text}</h2>}
             {widget.size === '3' && <h3>{widget.text}</h3>}
