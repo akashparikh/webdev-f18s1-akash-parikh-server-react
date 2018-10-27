@@ -1,3 +1,5 @@
+import widgets from "../reducers/widgets";
+
 let courses = [
     {
         id: '123',
@@ -113,6 +115,7 @@ export default class CourseService {
         courses = courses.filter(
             course => course.id !== courseId
         )
+
     deleteModule = moduleToDelete => {
         courses = courses.map(course => {
             course.modules = course.modules.filter(
@@ -135,4 +138,6 @@ export default class CourseService {
             }
         }
     }
+
+
 }

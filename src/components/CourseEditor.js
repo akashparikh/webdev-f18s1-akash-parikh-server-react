@@ -7,6 +7,8 @@ import widgets from "../reducers/widgets"
 import { createStore } from 'redux'
 import { Provider } from 'react-redux'
 import WidgetListContainer from '../containers/WidgetListContainer'
+import Switch from 'react-switch';
+
 import WhiteBoard from "../containers/WhiteBoard";
 
 const store = createStore(widgets)
@@ -34,8 +36,14 @@ export default class CourseEditor extends Component {
             course: course,
             selectedModule: selectedModule,
             selectedLesson: selectedLesson,
-            selectedTopic: selectedTopic
+            selectedTopic: selectedTopic,
+            checked:false
         }
+        this.handleChange=this.handleChange.bind(this);
+    }
+
+    handleChange(checked){
+        this.setState({checked});
     }
 
     selectLesson = lesson =>
@@ -86,16 +94,33 @@ export default class CourseEditor extends Component {
 
                         <br/>
 
-                        <Provider store={store}>
-                            <WidgetListContainer
-                                topic={this.state.selectedTopic}
-                                widgetsInit={this.state.selectedTopic.widgets}/>
-                        </Provider>
+                        <ul className="list-group">
+                            <li className="list-group-item">
+                                <button className="btn btn-success">Save</button>
+                                {/*<button value={this.preview}*/}
+                                        {/*onClick={()=>this.preview=!this.preview*/}
+                                        {/*}*/}
+                                        {/*className="btn btn-warning float-right">*/}
+                                    {/*Preview*/}
+                                {/*</button>*/}
+                                <span className="float-right mt-2">
+                                    <label>
+                                        <Switch
+                                            onChange={this.handleChange}
+                                            checked={this.state.checked}
+                                            id="normal-switch"
+                                        />
+                                    </label>
+                                </span>
+                            </li>
+                        </ul>
 
                         <Provider store={store}>
                             <WidgetListContainer
                                 topic={this.state.selectedTopic}
-                                widgetsInit={this.state.selectedTopic.widgets}/>
+                                widgetsInit={this.state.selectedTopic.widgets}
+                                checked={this.state.checked}
+                            />
                         </Provider>
 
                     </div>

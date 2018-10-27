@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const ParagraphWidget=({widget,updateWidget})=> {
+export const ParagraphWidget=({widget,updateWidget,checked})=> {
     let text;
     let size;
     let widgetType;
@@ -8,11 +8,16 @@ export const ParagraphWidget=({widget,updateWidget})=> {
 
     return(
         <div>
+            {!checked &&
+                <div>
             <h1>{widget.name}-Widget</h1>
             <select onChange={()=>{
                 let w={
-                    id:widget.id,
-                    widgetType:widgetType.value
+                    id: widget.id,
+                    title: 'widget 1',
+                    type: widgetType.value,
+                    size: 1,
+                    text: 'Heading 1'
                 };
                 updateWidget(w)
             }}
@@ -46,6 +51,7 @@ export const ParagraphWidget=({widget,updateWidget})=> {
 
             />
             <h4>Preview</h4>
+            </div>}
             <p>{widget.text}</p>
         </div>
     );

@@ -1,17 +1,23 @@
 import React from 'react'
+import img_file from './abc.jpg'
 
-export const ImageWidget=({widget,updateWidget})=>{
+export const ImageWidget=({widget,updateWidget,checked})=>{
     let text;
     let widgetType;
     let search;
     let widgetName;
     return(
         <div>
+            {!checked &&
+                <div>
             <h1>{widget.name}-Widget</h1>
             <select onChange={()=>{
                 let w={
-                    id:widget.id,
-                    widgetType:widgetType.value
+                    id: widget.id,
+                    title: 'widget 1',
+                    type: widgetType.value,
+                    size: 1,
+                    text: 'Heading 1'
                 };
                 updateWidget(w)
             }}
@@ -47,12 +53,11 @@ export const ImageWidget=({widget,updateWidget})=>{
                    }}
 
             />
-
             <h4>Preview</h4>
+            </div>}
             <img width='200px'
                  height='200px'
-                 src={widget.src}
-            />
+                 src={img_file}/>
         </div>
     )
 

@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const LinkWidget=({widget,updateWidget})=> {
+export const LinkWidget=({widget,updateWidget,checked})=> {
     let text;
     let url;
     let size;
@@ -9,11 +9,16 @@ export const LinkWidget=({widget,updateWidget})=> {
 
     return(
         <div>
+            {!checked &&
+                <div>
             <h1>{widget.name}-Widget</h1>
             <select onChange={()=>{
                 let w={
-                    id:widget.id,
-                    widgetType:widgetType.value
+                    id: widget.id,
+                    title: 'widget 1',
+                    type: widgetType.value,
+                    size: 1,
+                    text: 'Heading 1'
                 };
                 updateWidget(w)
             }}
@@ -24,7 +29,8 @@ export const LinkWidget=({widget,updateWidget})=> {
                 <option value='LIST'>List Widget</option>
                 <option value='PARAGRAPH'>Paragraph Widget</option>
                 <option value='IMAGE'>Image Widget</option>
-            </select><br/>
+            </select>
+            <br/>
             <label htmlFor='linkText'>Link Text</label><br/>
             <input
                 id='LinkText'
@@ -56,7 +62,8 @@ export const LinkWidget=({widget,updateWidget})=> {
 
             />
             <h4>Preview</h4>
-            <a href={widget.href}>{widget.text}</a>
+            </div>}
+                <a href={widget.href}>{widget.text}</a>
         </div>
     );
 }
